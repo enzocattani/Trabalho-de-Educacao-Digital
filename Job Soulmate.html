@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Job Soulmate</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff6f0;--ink:#4a2c3a;--mut:#8a6b78;--rose:#e8708f;--rose2:#ff9ec0;--gold:#c9a24b;--card:#fff;--line:#f3d9d2;--ok:#2f9e6b;--ok-bg:#e3f6ec;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#2a1620;--ink:#fbe9ee;--mut:#c7a3b1;--card:#3a2230;--line:#5a3a4a;--ok-bg:#1d3b2e;--ok:#6fe0a5}}
+:root[data-theme="dark"]{--bg:#2a1620;--ink:#fbe9ee;--mut:#c7a3b1;--card:#3a2230;--line:#5a3a4a;--ok-bg:#1d3b2e;--ok:#6fe0a5}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(circle at 10% 0,#ffd9e6 0,transparent 35%),radial-gradient(circle at 95% 20%,#fff0c9 0,transparent 30%),var(--bg);color:var(--ink);font-family:Poppins,system-ui,sans-serif;line-height:1.55;min-height:100vh}
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:.2em 0}
+nav{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:12px 18px;border-bottom:2px dotted var(--gold);background:var(--card);position:sticky;top:0;z-index:5}
+.logo{font-family:'Great Vibes',cursive;font-size:2rem;color:var(--rose);cursor:pointer;display:flex;align-items:center;gap:6px;margin-right:auto}
+nav button.l{background:none;border:0;color:var(--ink);font:inherit;cursor:pointer}
+main{max-width:980px;margin:0 auto;padding:20px 16px 60px}
+.btn{background:linear-gradient(#ffc2d6,var(--rose));color:#fff;border:2px solid #fff;border-radius:99px;padding:10px 22px;font:600 .95rem Poppins,sans-serif;cursor:pointer;box-shadow:0 4px 0 #c24d6d,inset 0 6px 8px rgba(255,255,255,.5);text-shadow:0 1px 2px #b0446480}
+.btn:active{transform:translateY(2px);box-shadow:0 2px 0 #c24d6d}
+.btn.g{background:linear-gradient(#f4e3a8,var(--gold));box-shadow:0 4px 0 #9a7a2c,inset 0 6px 8px rgba(255,255,255,.5)}
+.btn.o{background:var(--card);color:var(--rose);text-shadow:none;box-shadow:0 3px 0 var(--line);border-color:var(--rose)}
+.card{background:var(--card);border:2px solid var(--line);border-radius:22px;padding:18px;margin:14px 0;box-shadow:0 6px 0 var(--line)}
+.hero{text-align:center;padding:30px 10px}
+.hero h1{font-size:clamp(2rem,7vw,3.4rem);line-height:1.1}
+.script{font-family:'Great Vibes',cursive;color:var(--rose);font-size:1.8rem}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.chip{display:inline-block;background:#ffe3ec;color:#a1385a;border-radius:99px;padding:2px 12px;margin:2px;font-size:.8rem;border:1px solid #ffc2d6}
+.chip.gold{background:#fff1c9;color:#7a5d12;border-color:var(--gold)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .chip{background:#5a2d41;color:#ffd0df}:root:not([data-theme="light"]) .chip.gold{background:#4d4020;color:#f4e3a8}}
+input,select{width:100%;padding:10px 14px;border-radius:14px;border:2px solid var(--line);background:var(--card);color:var(--ink);font:inherit;margin:4px 0 10px}
+label{font-size:.85rem;color:var(--mut)}
+.bar{height:12px;border-radius:9px;background:var(--line);overflow:hidden}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--rose2),var(--rose))}
+.bar.ok i{background:linear-gradient(90deg,#8fe3b6,var(--ok))}
+.opt{display:block;width:100%;text-align:left;margin:8px 0;padding:14px 16px;border-radius:18px;border:2px solid var(--line);background:var(--card);color:var(--ink);font:inherit;cursor:pointer}
+.opt:hover{border-color:var(--rose);background:#fff0f5}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .opt:hover{background:#4a2a3a}}
+.bubble{display:flex;gap:12px;align-items:flex-start;background:#fff0f5;border:2px dashed var(--rose);border-radius:20px;padding:12px;margin:10px 0;color:#4a2c3a}
+.bubble b{font-size:2rem}
+.union{background:linear-gradient(135deg,#fff6d6,#ffe3ec);border:2px solid var(--gold);color:#4a2c3a}
+.tag{font-size:.75rem;border-radius:99px;padding:2px 10px;font-weight:600}
+.t-ok{background:var(--ok-bg);color:var(--ok)}.t-gold{background:#fff1c9;color:#7a5d12}.t-no{background:var(--line);color:var(--mut)}
+.row{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.price{font-size:2rem;font-family:'Playfair Display',serif}
+.modal{position:fixed;inset:0;background:#0008;display:flex;align-items:center;justify-content:center;padding:20px;z-index:20}
+.modal .card{max-width:420px;width:100%}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 20px;border-radius:99px;z-index:30}
+.spark{position:fixed;pointer-events:none;font-size:1.4rem;animation:up 1.6s forwards;z-index:25}
+@keyframes up{to{transform:translateY(-160px);opacity:0}}
+small,.mut{color:var(--mut)}
+</style></head><body>
+<nav><div class="logo" onclick="go('home')"><svg width="38" height="30" viewBox="0 0 38 30"><circle cx="13" cy="19" r="9" fill="none" stroke="#c9a24b" stroke-width="3"/><circle cx="25" cy="19" r="9" fill="none" stroke="#e8708f" stroke-width="3"/><path d="M19 8c-2-4-7-2-5 2 1 2 5 4 5 4s4-2 5-4c2-4-3-6-5-2z" fill="#e8708f"/></svg>Job Soulmate</div>
+<span id="nv"></span></nav>
+<main id="app"></main>
+<script>
+const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const AREAS=['Tecnologia','Marketing','Saúde','Vendas','Design','Administração'];
+const DICT={Tecnologia:['react','javascript','css','typescript','python','sql','html'],Marketing:['seo','copywriting','instagram','analytics','google ads'],Saúde:['enfermagem','triagem','uti','prontuário','cuidados'],Vendas:['negociação','crm','prospecção'],Design:['figma','ui','ux','photoshop'],Administração:['excel','financeiro','rh']};
+const Q=[["Qual ritmo de trabalho faz seu coração bater?",["Calmo e constante","Dinâmico e variado","Intenso, estilo startup"]],
+["Onde você quer morar profissionalmente?",["100% remoto","Híbrido","Presencial"]],
+["Seu par ideal de trabalho é…",["Eu comigo mesmo(a)","Uma dupla","Um time grande"]],
+["O que mais move você?",["Salário","Propósito","Crescimento"]],
+["Sobre liderança…",["Quero liderar","Prefiro executar","Depende da fase"]],
+["Como gosta de receber feedback?",["Direto e frequente","Em reuniões 1:1","Por escrito"]],
+["Mudanças repentinas são…",["Emocionantes","Aceitáveis","Um pesadelo"]],
+["Sua jornada dos sonhos:",["Horário fixo","Flexível","Por entregas"]],
+["Você aprende melhor com…",["Cursos","Prática","Mentoria"]],
+["A cultura da empresa deve ser…",["Formal","Descontraída","Inovadora"]]];
+const S={view:'home',user:null,
+workers:[{id:'w1',name:'Ana Beatriz Souza',email:'ana@exemplo.com',phone:'(11) 90000-0001',area:'Tecnologia',skills:['react','javascript','css','typescript'],ans:[2,1,2,2,0,0,0,1,1,2],plan:0,resume:'curriculo-ana.txt'},
+{id:'w2',name:'Carlos Lima',email:'carlos@exemplo.com',phone:'(21) 90000-0002',area:'Marketing',skills:['seo','copywriting','instagram','analytics'],ans:[1,1,0,1,0,1,0,0,1,1],plan:0,resume:'curriculo-carlos.txt'},
+{id:'w3',name:'Marina Ribeiro',email:'marina@exemplo.com',phone:'(31) 90000-0003',area:'Saúde',skills:['enfermagem','triagem','uti'],ans:[0,2,2,1,1,1,1,0,0,0],plan:0,resume:'curriculo-marina.txt'}],
+recs:[{id:'r1',name:'Altar Tech',email:'rh@altartech.com'},{id:'r2',name:'Buquê Studio',email:'rh@buquestudio.com'}],
+jobs:[{id:'j1',rid:'r1',title:'Desenvolvedor(a) Front-end',area:'Tecnologia',skills:['react','javascript','css','typescript'],ans:[2,1,2,2,0,0,0,1,2,2],slots:['Terça, 10h – Semana 1','Quinta, 15h – Semana 1','Segunda, 9h – Semana 2'],plan:0},
+{id:'j2',rid:'r2',title:'Analista de Marketing Digital',area:'Marketing',skills:['seo','copywriting','google ads','analytics'],ans:[1,1,2,1,0,0,0,1,1,2],slots:['Quarta, 11h – Semana 1','Sexta, 14h – Semana 1','Terça, 16h – Semana 2'],plan:0}],
+apps:[],unions:[],quiz:null,draft:null};
+const W=id=>S.workers.find(x=>x.id==id),J=id=>S.jobs.find(x=>x.id==id),R=id=>S.recs.find(x=>x.id==id);
+function score(w,j){if(w.area!==j.area)return null;const q=w.ans.filter((a,i)=>a===j.ans[i]).length/10,k=j.skills.filter(s=>w.skills.includes(s)).length/j.skills.length;return Math.round((q*.7+k*.3)*100)}
+function matchPair(w,j){const sc=score(w,j);if(sc==null)return;let a=S.apps.find(x=>x.w==w.id&&x.j==j.id);if(!a)S.apps.push(a={w:w.id,j:j.id,sc});a.sc=sc;
+if(sc>=80&&!S.unions.find(u=>u.w==w.id&&u.j==j.id)){const used=S.unions.filter(u=>u.j==j.id).map(u=>u.slot),s=[0,1,2].find(i=>!used.includes(i));if(s!=null)S.unions.push({w:w.id,j:j.id,slot:s,link:'meet.jobsoulmate.app/'+w.id+j.id});return true}}
+const runAll=()=>S.workers.forEach(w=>S.jobs.forEach(j=>matchPair(w,j)));runAll();
+function parse(t){const l=t.toLowerCase();let best='',n=0,skills=[];for(const a in DICT){const f=DICT[a].filter(s=>l.includes(s));if(f.length>n){n=f.length;best=a}skills.push(...f)}
+const first=t.split('\n').map(x=>x.trim()).find(Boolean)||'';return{email:(t.match(/[\w.+-]+@[\w-]+\.[\w.]+/)||[''])[0],phone:(t.match(/\(?\d{2}\)?\s?9?\d{4}-?\d{4}/)||[''])[0],name:first.length<45?first:'',area:best,skills:[...new Set(skills)]}}
+const toast=m=>{const e=document.createElement('div');e.className='toast';e.textContent=m;document.body.append(e);setTimeout(()=>e.remove(),2600)};
+const hearts=()=>{for(let i=0;i<14;i++){const e=document.createElement('div');e.className='spark';e.textContent=['💖','✨','💍','💘'][i%4];e.style.left=Math.random()*90+'vw';e.style.top=(55+Math.random()*30)+'vh';document.body.append(e);setTimeout(()=>e.remove(),1700)}};
+const go=v=>{S.view=v;render();scrollTo(0,0)};
+const bubble=t=>`<div class="bubble"><b>💘</b><div><strong>Conselheiro Amoroso</strong><br>${t}</div></div>`;
+const bar=n=>`<div class="bar ${n>=80?'ok':''}"><i style="width:${n}%"></i></div>`;
+const PW=[['Solteiro(a)',0,'Candidatura automática em vagas da sua área, quiz completo'],['Pretendente Plus',19,'Perfil em destaque para recrutadores + prioridade nas listas'],['Alma Gêmea Premium',49,'Tudo do Plus + selo dourado e 1º lugar no ranking']];
+const PR=[['Solteira',0,'1 vaga ativa e ranking básico'],['Noivado',99,'Até 5 vagas e vaga em destaque'],['Casamento Real',249,'Vagas ilimitadas, selo dourado e topo da busca']];
+function nav(){const u=S.user;$('#nv').innerHTML=`<button class="l" onclick="go('plans')">💍 Planos</button> `+(u?`<button class="l" onclick="go('dash')">Meu painel</button> <button class="btn o" style="padding:6px 14px" onclick="S.user=null;go('home')">Sair</button>`:`<button class="btn" style="padding:6px 16px" onclick="go('login')">Entrar</button>`)}
+function render(){nav();const v=S.view;$('#app').innerHTML=({home,login,signW,signR,quiz,dash,plans,newjob})[v]()}
+function home(){return`<div class="hero"><div class="script">Eles dizem “sim” ao match perfeito</div><h1>Seu próximo emprego também merece um <em>felizes para sempre</em> 💍</h1>
+<p class="mut">Suba seu currículo, responda 10 perguntas e deixe o Conselheiro Amoroso casar você com a vaga ideal. Nossa IA se candidata por você, sem stress.</p>
+<button class="btn" onclick="go('signW')">Sou candidato(a) 💘</button> <button class="btn g" onclick="go('signR')">Sou recrutador(a) 💼</button></div>
+<div class="grid">${[['📄','Currículo mágico','Envie seu .txt: extraímos e completamos todo o perfil. Se não reconhecermos, guardamos o arquivo.'],['💌','Quiz do Conselheiro','10 perguntas estilo BuzzFeed, só que sério. Cada resposta afina seu nicho.'],['💞','Job Union','Compatibilidade acima de 80%? Entrevista por vídeo marcada automaticamente.'],['🏹','Cupido automático','A IA se candidata a todas as vagas compatíveis. Você só aparece na entrevista.']].map(x=>`<div class="card"><h3>${x[0]} ${x[1]}</h3><p class="mut">${x[2]}</p></div>`).join('')}</div>
+<div class="card" style="text-align:center"><h2>Casais de sucesso 💖</h2><p>“Vim pelo quiz, fiquei pelo Job Union.” — Ana Beatriz, Dev Front-end na Altar Tech</p><small>Demo: use as contas prontas em “Entrar”.</small></div>`}
+function login(){return`<h2>Entrar na cerimônia</h2><p class="mut">Contas de demonstração (sem senha):</p><div class="grid">
+${S.workers.map((w,i)=>`<div class="card"><b>${esc(w.name)}</b><br><small>${w.area}</small><br>${['💞 Com Job Union','💔 Vaga na área, sem match','🕊️ Sem vagas na área'][i]}<br><br><button class="btn" onclick="S.user={r:'w',id:'${w.id}'};go('dash')">Entrar</button></div>`).join('')}
+${S.recs.map(r=>`<div class="card"><b>${esc(r.name)}</b><br><small>Recrutador(a)</small><br><br><button class="btn g" onclick="S.user={r:'r',id:'${r.id}'};go('dash')">Entrar</button></div>`).join('')}</div>
+<p>Ou crie sua conta: <a href="#" onclick="go('signW');return false">candidato</a> · <a href="#" onclick="go('signR');return false">recrutador</a></p>`}
+function signW(){return`<h2>Crie seu perfil de candidato(a) 💘</h2><div class="card">${bubble('Jogue seu currículo aqui. Eu preencho o resto para você!')}
+<label>Currículo (.txt para leitura automática)</label><input type="file" id="cv" accept=".txt,.pdf,.doc,.docx" onchange="readCV(this.files[0])"><div id="cvs" class="mut"></div>
+<label>Nome</label><input id="n"><label>E-mail</label><input id="e" type="email"><label>Telefone</label><input id="p">
+<label>Área da vaga que você busca</label><select id="a">${AREAS.map(a=>`<option>${a}</option>`).join('')}</select>
+<label>Habilidades (separadas por vírgula)</label><input id="s">
+<button class="btn" onclick="saveW()">Continuar para o quiz 💌</button></div>`}
+let cvName='';
+function readCV(f){if(!f)return;cvName=f.name;const st=$('#cvs');if(!/\.txt$/i.test(f.name)){st.textContent='📎 Não consegui ler este formato. Guardei o arquivo no seu perfil; complete os campos abaixo.';return}
+const r=new FileReader();r.onload=()=>{const p=parse(r.result);if(p.name)$('#n').value=p.name;$('#e').value=p.email;$('#p').value=p.phone;if(p.area)$('#a').value=p.area;$('#s').value=p.skills.join(', ');
+st.textContent=p.skills.length?'✨ Perfil completado automaticamente!':'📎 Não reconheci tudo. O currículo fica no seu perfil; complete o que faltar.'};r.readAsText(f)}
+function saveW(){const n=$('#n').value.trim(),e=$('#e').value.trim();if(!n||!e)return toast('Preencha nome e e-mail');
+const w={id:'w'+Date.now(),name:n,email:e,phone:$('#p').value,area:$('#a').value,skills:$('#s').value.toLowerCase().split(',').map(x=>x.trim()).filter(Boolean),ans:[],plan:0,resume:cvName||'sem arquivo'};
+S.workers.push(w);S.user={r:'w',id:w.id};S.quiz={mode:'w',id:w.id,i:0,ans:[]};go('quiz')}
+function signR(){return`<h2>Cadastre sua empresa 💼</h2><div class="card"><label>Nome da empresa</label><input id="n"><label>E-mail</label><input id="e"><button class="btn g" onclick="saveR()">Criar conta</button></div>`}
+function saveR(){const n=$('#n').value.trim();if(!n)return toast('Informe o nome da empresa');const r={id:'r'+Date.now(),name:n,email:$('#e').value};S.recs.push(r);S.user={r:'r',id:r.id};go('newjob')}
+function newjob(){return`<h2>Nova vaga 💍</h2><div class="card"><label>Título da vaga</label><input id="t"><label>Área</label><select id="a">${AREAS.map(a=>`<option>${a}</option>`).join('')}</select>
+<label>Habilidades exigidas (vírgula)</label><input id="s"><label>3 opções de entrevista por vídeo (dia, hora, semana)</label>
+<input id="d1" value="Terça, 10h – Semana 1"><input id="d2" value="Quinta, 15h – Semana 1"><input id="d3" value="Segunda, 9h – Semana 2">
+<button class="btn g" onclick="saveJ()">Fazer o quiz da vaga 💌</button></div>`}
+function saveJ(){const t=$('#t').value.trim();if(!t)return toast('Dê um título à vaga');S.draft={id:'j'+Date.now(),rid:S.user.id,title:t,area:$('#a').value,skills:$('#s').value.toLowerCase().split(',').map(x=>x.trim()).filter(Boolean),slots:[$('#d1').value,$('#d2').value,$('#d3').value],plan:0};S.quiz={mode:'j',i:0,ans:[]};go('quiz')}
+function quiz(){const z=S.quiz,i=z.i,q=Q[i],jm=z.mode=='j';
+return`<h2>${jm?'Perfil ideal da vaga':'Quiz do Conselheiro Amoroso'}</h2><small>Pergunta ${i+1} de 10</small>${bar((i)*10)}
+${bubble(i==0?(jm?'Vamos descobrir quem é a alma gêmea desta vaga!':'Vamos descobrir seu tipo ideal de vaga.'):`Anotado! Já estamos afunilando seu nicho… ${i*10}% do caminho até o altar.`)}
+<div class="card"><h3>${q[0]}</h3>${q[1].map((o,k)=>`<button class="opt" onclick="ans(${k})">${['💗','💍','✨'][k]} ${o}</button>`).join('')}</div>
+<div>${z.ans.map((a,k)=>`<span class="chip">${Q[k][1][a]}</span>`).join('')}</div>`}
+function ans(k){const z=S.quiz;z.ans.push(k);z.i++;if(z.i<10)return render();
+if(z.mode=='w'){const w=W(z.id);w.ans=z.ans;let u=0;S.jobs.forEach(j=>{if(matchPair(w,j))u++});S.quiz=null;if(u)hearts();toast(u?'💞 Job Union! Entrevista marcada':'Relatório pronto!')}
+else{const j=S.draft;j.ans=z.ans;S.jobs.push(j);let u=0;S.workers.forEach(w=>{if(matchPair(w,j))u++});S.quiz=null;S.draft=null;if(u)hearts();toast(u?u+' Job Union(s) criado(s)! 💞':'Vaga publicada!')}go('dash')}
+function modal(h){const m=document.createElement('div');m.className='modal';m.innerHTML=`<div class="card">${h}</div>`;m.onclick=e=>{if(e.target==m)m.remove()};document.body.append(m)}
+function buy(kind,i){const P=kind=='w'?PW:PR;modal(`<h3>${P[i][0]}</h3><p class="price">${P[i][1]?'R$ '+P[i][1]+'/mês':'Grátis'}</p><label>Cartão (simulação)</label><input value="4242 4242 4242 4242"><button class="btn g" onclick="setPlan('${kind}',${i});this.closest('.modal').remove()">Confirmar assinatura</button><p><small>Pagamento fictício, apenas para demonstração.</small></p>`)}
+function setPlan(k,i){if(!S.user)return go('login');if(k=='w'){W(S.user.id).plan=i}else{S.jobs.filter(j=>j.rid==S.user.id).forEach(j=>j.plan=i)}toast('Plano ativado! ✨');hearts();render()}
+function plans(){const card=(P,k)=>P.map((p,i)=>`<div class="card"${i==2?' style="border-color:var(--gold)"':''}><h3>${i==2?'👑 ':''}${p[0]}</h3><div class="price">${p[1]?'R$ '+p[1]:'Grátis'}</div><p class="mut">${p[2]}</p><button class="btn ${i==2?'g':''}" onclick="buy('${k}',${i})">${p[1]?'Impulsionar':'Plano atual'}</button></div>`).join('');
+return`<h2>Impulsione seu amor 💍</h2><h3>Para candidatos</h3><div class="grid">${card(PW,'w')}</div><h3>Para recrutadores</h3><div class="grid">${card(PR,'r')}</div>`}
+const badge=p=>p==2?'<span class="tag t-gold">👑 Premium</span>':p==1?'<span class="tag t-gold">⭐ Em destaque</span>':'';
+function dash(){if(!S.user){return login()}return S.user.r=='w'?dashW():dashR()}
+function dashW(){const w=W(S.user.id);if(!w.ans.length){S.quiz={mode:'w',id:w.id,i:0,ans:[]};return quiz()}
+const ap=S.apps.filter(a=>a.w==w.id).sort((a,b)=>b.sc-a.sc),un=S.unions.filter(u=>u.w==w.id);
+return`<div class="row"><h2>Olá, ${esc(w.name.split(' ')[0])}! ${badge(w.plan)}</h2><button class="btn g" onclick="go('plans')">Impulsionar perfil</button></div>
+${bubble(un.length?'Temos um casal! Sua entrevista já está marcada. 💞':ap.length?'Encontrei vagas na sua área, mas o amor ainda não é 80%. Continue, o cupido segue tentando!':'Ainda não há vagas na sua área. Avisarei assim que surgir um par perfeito! 🕊️')}
+${un.map(u=>{const j=J(u.j);return`<div class="card union"><h3>💞 Job Union com ${esc(R(j.rid).name)}!</h3><p><b>${esc(j.title)}</b> · ${ap.find(a=>a.j==j.id).sc}% de compatibilidade<br>📅 Videochamada: <b>${esc(j.slots[u.slot])}</b></p><button class="btn" onclick="toast('Abrindo ${u.link}')">Entrar na videochamada</button></div>`}).join('')}
+<div class="grid"><div class="card"><h3>📄 Meu perfil</h3><b>${esc(w.name)}</b><br><small>${esc(w.email)} · ${esc(w.phone)}</small><br>Área: ${w.area}<br>📎 ${esc(w.resume)}<br>${w.skills.map(s=>`<span class="chip">${esc(s)}</span>`).join('')}</div>
+<div class="card"><h3>📝 Relatório do Conselheiro</h3><small>Palavras-chave geradas pelo quiz:</small><br>${w.ans.map((a,i)=>`<span class="chip gold">${Q[i][1][a]}</span>`).join('')}</div></div>
+<h3>🏹 Cupido automático: ${ap.length} candidatura(s) enviada(s) por você</h3>
+${ap.map(a=>{const j=J(a.j);return`<div class="card"><div class="row"><b>${esc(j.title)}</b> <span class="tag ${a.sc>=80?'t-ok':'t-no'}">${a.sc>=80?'Job Union 💞':'Sem match'}</span></div><small>${esc(R(j.rid).name)} ${badge(j.plan)}</small>${bar(a.sc)}<small>${a.sc}% de compatibilidade</small></div>`}).join('')||'<div class="card mut">Nenhuma vaga na sua área por enquanto.</div>'}`}
+function dashR(){const r=R(S.user.id),js=S.jobs.filter(j=>j.rid==r.id);
+return`<div class="row"><h2>${esc(r.name)} ${badge(js[0]?.plan||0)}</h2><span><button class="btn" onclick="go('newjob')">+ Nova vaga</button> <button class="btn g" onclick="go('plans')">Impulsionar</button></span></div>
+${bubble('Cada vaga tem sua alma gêmea. Veja abaixo quem combina com a sua.')}
+${js.map(j=>{const ap=S.apps.filter(a=>a.j==j.id).sort((a,b)=>(W(b.w).plan-W(a.w).plan)||b.sc-a.sc);return`<div class="card"><h3>${esc(j.title)}</h3><small>${j.area}</small><br>${j.ans.map((a,i)=>`<span class="chip gold">${Q[i][1][a]}</span>`).join('')}
+<h4>Candidatos (${ap.length})</h4>${ap.map(a=>{const w=W(a.w),u=S.unions.find(x=>x.w==a.w&&x.j==j.id);return`<div style="margin:10px 0"><div class="row"><span>${esc(w.name)} ${badge(w.plan)}</span><span class="tag ${u?'t-ok':'t-no'}">${u?'💞 '+esc(j.slots[u.slot]):'Sem match'}</span></div>${bar(a.sc)}<small>${a.sc}%</small></div>`}).join('')||'<p class="mut">Sem candidatos ainda.</p>'}</div>`}).join('')||'<div class="card mut">Crie sua primeira vaga!</div>'}`}
+render();
+</script></body></html>
